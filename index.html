@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="prime">
+    <button onclick="primenumber()">submit</button>
+    <h1 id="number"></h1>
+    <script>
+        function primenumber() {
+            const number = document.getElementById('prime').value;
+            let isPrime = true;
+
+// check if number is equal to 1
+            if (number === 1) {
+               document.getElementById('number').innerHTML="1 is neither prime nor composite number.";
+            }
+
+// check if number is greater than 1
+            else if (number > 1) {
+
+    // looping through 2 to number-1
+                for (let i = 2; i < number; i++) {
+                    if (number % i == 0) {
+                        isPrime = false;
+                        break;
+                    }
+            }
+
+            if (isPrime) {
+               document.getElementById('number').innerHTML=(`${number} is a prime number`);
+            } else {
+                document.getElementById('number').innerHTML=(`${number} is a not prime number`);
+            }
+            }
+
+// check if number is less than 1
+            else {
+                document.getElementById('number').innerHTML="The number is not a prime number.";
+            }
+        }
+    </script>
+</body>
+</html>
